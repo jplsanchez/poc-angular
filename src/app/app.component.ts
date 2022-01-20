@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'poc-angular';
+  transferences: Array<any> = [];
+
+  transfer($event) {
+    const transference = { ...$event, date: new Date() };
+    this.transferences.push(transference);
+  }
 }
