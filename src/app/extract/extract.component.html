@@ -4,7 +4,7 @@
     <th class="table__header__content">Valor</th>
     <th class="table__header__content">Destino</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transferences?.length > 0; else emptyList">
     <tr class="table__row" *ngFor="let transference of transferences">
       <td class="table__content">{{ transference.date | date: short }}</td>
       <td class="table__content">{{ transference.value }}</td>
@@ -12,3 +12,6 @@
     </tr>
   </tbody>
 </table>
+<<ng-template #emptyList>
+  <p>Nenhuma operação cadastrada!</p>
+</ng-template>

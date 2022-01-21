@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferService } from './services/transfer.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'poc-angular';
-  transferences: Array<any> = [];
+
+  constructor(private service: TransferService) {
+
+  }
 
   transfer($event) {
-    const transference = { ...$event, date: new Date() };
-    this.transferences.push(transference);
+    let t = $event;
+    this.service.add($event);
   }
+
 }
