@@ -13,9 +13,6 @@ export class AppComponent {
 
   }
 
-  transfer($event) {
-    let t = $event;
-    this.service.add($event);
-  }
+  //json-server --watch db.json --port 5001
 
 }
