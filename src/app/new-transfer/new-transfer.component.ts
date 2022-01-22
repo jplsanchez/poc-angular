@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Transference } from '../models/transference.model';
 import { TransferService } from '../services/transfer.service';
 
@@ -14,7 +15,7 @@ export class NewTransferComponent {
   value: number;
   target: number;
 
-  constructor(private service: TransferService) {
+  constructor(private service: TransferService, private router: Router) {
 
   }
 
@@ -28,6 +29,7 @@ export class NewTransferComponent {
       result => {
         console.log(result);
         this.cleanFields();
+        this.router.navigateByUrl('extract')
       },
       error => console.error(error)
     );
